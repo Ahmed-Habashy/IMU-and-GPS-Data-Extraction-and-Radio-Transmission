@@ -1,5 +1,7 @@
 # IMU-and-GPS-Data-Extraction-and-Radio-Transmission
-This program extracts data from two sensors: SparkFun 9DoF Razor IMU M0 and SparkFun GPS-RTK-SMA Breakout - ZED-F9P. The extracted data is then combined into a single message and sent via a radio transmitter.
+This code is designed to extract data from two sensors, "SparkFun 9DoF Razor IMU M0" board and "SparkFun GPS-RTK-SMA Breakout - ZED-F9P" board, using an Arduino Mega microcontroller. The data is then packed in a custom message format and transmitted via a radio transmitter.
+The code has multiple boolean flags for each sensor's data stream that are set to true when the start of a message is detected. The data is then read and parsed, and once the end of the message is detected, the boolean flag is set to false. The IMU data is received on Serial1, while the GPS data is received on Serial2.
+The custom message format is 64 bytes long and includes the sensor data and an encryption key index. The code uses an interval of 400 milliseconds to update the data.
 
 # Hardware Requirements
 SparkFun 9DoF Razor IMU M0 board (https://www.sparkfun.com/products/16481)
